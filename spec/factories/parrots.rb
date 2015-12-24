@@ -26,8 +26,6 @@ FactoryGirl.define do
     color "yellow"
     age 12
     pedigree false
-    father nil
-    mother nil
   end
 
 end

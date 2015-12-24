@@ -33,7 +33,7 @@ class Parrot < ActiveRecord::Base
   validates :gender, inclusion: { in: %w(m f) }
 
   belongs_to :father, class_name: 'Parrot', foreign_key: :father_id
-  belongs_to :mother, class_name: 'Parrot', foreign_key: :father_id
+  belongs_to :mother, class_name: 'Parrot', foreign_key: :mother_id
 
   before_create :generate_name
 

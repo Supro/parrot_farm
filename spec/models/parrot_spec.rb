@@ -10,8 +10,8 @@ RSpec.describe Parrot, type: :model do
   end
 
   it "relations" do
-    should belong_to(:father)
-    should belong_to(:mother)
+    should belong_to(:father).class_name(:Parrot).with_foreign_key(:father_id)
+    should belong_to(:mother).class_name(:Parrot).with_foreign_key(:mother_id)
   end
 
   context "friendly_id" do
@@ -51,7 +51,7 @@ RSpec.describe Parrot, type: :model do
       expect(parrot.is_female?).to be_falsey
     end
 
-    context "#generate_name" do
+    it "#generate_name" do
       expect(parrot.name).to_not be_nil
     end
   end
