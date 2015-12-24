@@ -8,7 +8,6 @@ gem 'active_model_serializers', '0.10.0.rc3'
 
 gem 'kaminari', '0.16.3'
 gem 'friendly_id', '5.1.0'
-gem 'rails-simple-search', '0.9.9'
 
 gem 'random_data'
 

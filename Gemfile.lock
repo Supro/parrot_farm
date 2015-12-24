@@ -107,7 +107,6 @@ GEM
       rails-deprecated_sanitizer (>= 1.0.1)
     rails-html-sanitizer (1.0.2)
       loofah (~> 2.0)
-    rails-simple-search (0.9.9)
     railties (4.2.5)
       actionpack (= 4.2.5)
       activesupport (= 4.2.5)
@@ -160,7 +159,6 @@ DEPENDENCIES
   pg (= 0.18.3)
   puma (= 2.15.3)
   rails (= 4.2.5)
-  rails-simple-search (= 0.9.9)
   random_data
   rspec-rails (~> 3.4.0)
   shoulda-matchers (= 3.0.1)
