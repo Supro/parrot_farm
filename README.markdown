@@ -1,14 +1,14 @@
 # Guide
 
 ```
+git clone https://github.com/Supro/parrot_farm
+cd parrot_farm
 bundle install
 cd frontend
 npm install
 bower install
 cd ..
-rake db:create
-rake db:migrate
-rake db:seed
+rake db:setup
 rails s
 ```
 
