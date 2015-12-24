@@ -9,6 +9,10 @@ Router.map(function() {
   this.route('index', { path: '/' }, function(){
     this.route('inner', { path: '/' });
   });
+
+  this.route('parrots', { path: '/parrots' }, function(){
+    this.route('edit', { path: '/:id/edit' });
+  });
 });
 
 export default Router;

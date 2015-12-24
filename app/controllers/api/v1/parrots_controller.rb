@@ -45,7 +45,7 @@ private
   end
 
   def create_params
-    params.require(:parrot).permit(:color, :gender, :age, :father_id, :mother_id)
+    params.require(:parrot).permit(:color, :gender, :age, :pedigree, :father_id, :mother_id)
   end
 
   alias_method :update_params, :create_params

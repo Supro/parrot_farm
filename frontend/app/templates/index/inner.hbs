@@ -1,11 +1,3 @@
 {{#each model as |parrot|}}
-  <tr>
-    <td>{{parrot.id}}</td>
-    <td>{{parrot.slug}}</td>
-    <td>{{parrot.name}}</td>
-    <td>{{parrot.age}}</td>
-    <td>{{parrot.color}}</td>
-    <td>{{parrot.gender}}</td>
-    <td>{{parrot.pedigree}}</td>
-  </tr>
+  {{parrot-item parrot=parrot}}
 {{/each}}

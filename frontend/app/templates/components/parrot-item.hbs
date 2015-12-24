@@ -1,0 +1,16 @@
+{{#if isEditing}}
+  {{parrot-form parrot=parrot}}
+{{else}}
+  <td>{{parrot.id}}</td>
+  <td>{{parrot.slug}}</td>
+  <td>{{parrot.name}}</td>
+  <td>{{parrot.age}}</td>
+  <td>{{parrot.color}}</td>
+  <td>{{parrot.gender}}</td>
+  <td>{{parrot.pedigree}}</td>
+  <td>
+    {{#link-to 'parrots.edit' parrot.slug class="btn btn-primary"}}
+      Edit parrot
+    {{/link-to}}
+  </td>
+{{/if}}

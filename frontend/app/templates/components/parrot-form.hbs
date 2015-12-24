@@ -1,0 +1,43 @@
+<form class="form" {{action 'submitForm' on='submit'}}>
+  <div class="{{if parrot.genderValid 'form-group has-success' 'form-group has-error'}}">
+    <label>Gender</label>
+    <select onchange={{action "selectGender" value="target.value"}} class="form-control">
+      {{#each genders as |gender|}}
+        <option value={{gender.id}} selected={{is-equal parrot.gender gender.id}}>{{gender.label}}</option>
+      {{/each}}
+    </select>
+    {{#unless parrot.genderValid}}
+      <span class="help-block">Select parrot gender</span>
+    {{/unless}}
+  </div>
+  <div class="{{if parrot.colorValid 'form-group has-success' 'form-group has-error'}}">
+    <label>Color</label>
+    {{input value=parrot.color class="form-control"}}
+    {{#unless parrot.colorValid}}
+      <span class="help-block">Type color</span>
+    {{/unless}}
+  </div>
+  <div class="{{if parrot.ageValid 'form-group has-success' 'form-group has-error'}}">
+    <label>Age</label>
+    {{input value=parrot.age type="number" class="form-control"}}
+    {{#unless parrot.ageValid}}
+      <span class="help-block">Minumum {{parrot.ageMin}} month, maximum {{parrot.ageMax}} months</span>
+    {{/unless}}
+  </div>
+  <div class="form-group">
+    <label>
+      {{input type="checkbox" checked=parrot.pedigree}}
+      Pedigree
+    </label>
+  </div>
+  <div class="form-group">
+    {{#if parrot.isNew}}
+      <button class="btn btn-success" disabled={{parrot.formInvalid}}>Add parrot</button>
+    {{else}}
+      <button class="btn btn-success" disabled={{parrot.formInvalid}}>Update parrot</button>
+      {{#link-to 'index.inner' class="btn btn-danger"}}
+        Back to list
+      {{/link-to}}
+    {{/if}}
+  </div>
+</form>
