@@ -1,4 +1,38 @@
-<h1>Parrots List</h1>
+<div class="form-group col-lg-6 col-md-6">
+  <label>Parrot name</label>
+  {{input value=name class="form-control"}}
+</div>
+<div class="form-group col-lg-6 col-md-6">
+  <label>Parrot slug</label>
+  {{input value=slug class="form-control"}}
+</div>
+<div class="form-group col-lg-3 col-md-3">
+  <label>Parrot gender</label>
+  <select onchange={{action "selectGender" value="target.value"}} class="form-control">
+    {{#each baseData.genders as |gender|}}
+      <option value={{gender.id}} selected={{is-equal indexInnerController.gender gender.id}}>{{gender.label}}</option>
+    {{/each}}
+  </select>
+</div>
+<div class="form-group col-lg-3 col-md-3">
+  <label>Parrot color</label>
+  <select onchange={{action "selectColor" value="target.value"}} class="form-control">
+    {{#each baseData.colors as |color|}}
+      <option value={{color.id}} selected={{is-equal indexInnerController.color color.id}}>{{color.label}}</option>
+    {{/each}}
+  </select>
+</div>
+<div class="form-group col-lg-3 col-md-3">
+  <label>Parrot age</label>
+  {{input type="number" value=indexInnerController.age class="form-control"}}
+</div>
+<div class="form-group col-lg-3 col-md-3">
+  <label>
+    {{input type="checkbox" checked=indexInnerController.pedigree}}
+    Pedigree
+  </label>
+</div>
+
 <table class="table table-striped">
   <thead>
     <tr>

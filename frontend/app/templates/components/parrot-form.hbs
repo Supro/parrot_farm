@@ -2,7 +2,7 @@
   <div class="{{if parrot.genderValid 'form-group has-success' 'form-group has-error'}}">
     <label>Gender</label>
     <select onchange={{action "selectGender" value="target.value"}} class="form-control">
-      {{#each genders as |gender|}}
+      {{#each baseData.genders as |gender|}}
         <option value={{gender.id}} selected={{is-equal parrot.gender gender.id}}>{{gender.label}}</option>
       {{/each}}
     </select>

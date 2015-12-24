@@ -4,12 +4,7 @@ const { service } = Ember.inject;
 
 export default Ember.Component.extend({
   store: service('store'),
-
-  genders: [
-    {id: null, label: 'Select gender'},
-    {id: 'm', label: 'Male'},
-    {id: 'f', label: 'Female'}
-  ],
+  baseData: service('base-data'),
 
   newParrot() {
     return this.get('store').createRecord('parrot');

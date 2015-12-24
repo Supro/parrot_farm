@@ -17,7 +17,7 @@ module Searchable
 
     def create_filters(params)
       {}.tap do |hash|
-        hash[:pedigree] = true if params[:pedigree].present?
+        hash[:pedigree] = true if params[:pedigree].present? && params[:pedigree].eql?('true')
         hash[:color] = params[:color] if params[:color].present?
         hash[:gender] = params[:gender] if params[:gender].present?
       end

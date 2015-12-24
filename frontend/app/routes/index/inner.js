@@ -11,6 +11,9 @@ export default Ember.Route.extend({
     age: {
       refreshModel: true
     },
+    gender: {
+      refreshModel: true
+    },
     color: {
       refreshModel: true
     },

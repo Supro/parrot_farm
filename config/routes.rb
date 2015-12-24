@@ -3,6 +3,7 @@ ParrotFarm::Application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :parrots, only: [:index, :show, :create, :update]
+      resources :settings, only: [:index]
     end
   end
 
