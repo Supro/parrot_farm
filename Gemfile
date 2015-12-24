@@ -10,7 +10,7 @@ gem 'kaminari', '0.16.3'
 gem 'friendly_id', '5.1.0'
 gem 'rails-simple-search', '0.9.9'
 
-gem 'faker', '1.5.0'
+gem 'random_data'
 
 gem "ember-cli-rails", github: "thoughtbot/ember-cli-rails", branch: "sd-manifest"
 
@@ -22,4 +22,8 @@ group :development, :test do
   gem 'annotate', '2.6.10'
   gem 'rspec-rails', '~> 3.4.0'
   gem 'shoulda-matchers', '3.0.1'
+end
+
+group :test do
+  gem 'database_cleaner', '1.5.1'
 end
