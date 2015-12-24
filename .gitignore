@@ -14,3 +14,7 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+/fontend/node_modules
+/frontend/bower_components
+/frontend/tmp

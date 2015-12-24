@@ -12,7 +12,7 @@ gem 'rails-simple-search', '0.9.9'
 
 gem 'random_data'
 
-gem "ember-cli-rails", github: "thoughtbot/ember-cli-rails", branch: "sd-manifest"
+gem "ember-cli-rails", '0.7.0'
 
 gem 'puma', '2.15.3'
 
