@@ -21,8 +21,13 @@
 #
 
 class Parrot < ActiveRecord::Base
+  include Searchable
   extend FriendlyId
+
   friendly_id :generated_unique_identifier, use: [:slugged, :finders]
+
+  paginates_per 9
+  max_paginates_per 15
 
   validates :color, :age, presence: true
   validates :gender, inclusion: { in: %w(m f) }
@@ -46,9 +51,9 @@ class Parrot < ActiveRecord::Base
 
   def generate_name
     if is_male?
-      self.name = Random.first_name_female
-    else
       self.name = Random.first_name_male
+    else
+      self.name = Random.first_name_female
     end unless name.present?
   end
 
