@@ -11,14 +11,29 @@ export default Ember.Component.extend({
     {id: 'f', label: 'Female'}
   ],
 
+  newParrot() {
+    return this.get('store').createRecord('parrot');
+  },
+
+  parrot: Ember.computed(function(){
+    return this.newParrot();
+  }),
+
   actions: {
     selectGender(gender) {
       this.get('parrot').set('gender', gender);
     },
 
     submitForm() {
+      const isNew = this.get('parrot.isNew');
+
       this.get('parrot').save().then((parrot) => {
-        this.get('currentController').transitionToRoute('index.inner');
+        if (isNew) {
+          this.get('currentController').set('addingParrot', false);
+          this.get('indexInnerController').get('model').pushObject(parrot._internalModel);
+        } else {
+          this.get('currentController').transitionToRoute('index.inner');
+        }
       });
     }
   }

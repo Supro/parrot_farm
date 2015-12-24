@@ -15,3 +15,21 @@
     {{outlet}}
   </tbody>
 </table>
+
+<div class="show-more">
+  {{#if indexInnerController.canLoadMore}}
+    <a class="btn btn-primary" {{action 'getMore' target="indexInnerController"}}>
+      {{#if indexInnerController.loading}}
+        Loading
+      {{else}}
+        More
+      {{/if}}
+    </a>
+  {{/if}}
+</div>
+
+<button class="btn btn-primary" {{action 'toggleParrotForm'}} style="margin-bottom: 10px;">Add parrot</button>
+
+{{#if addingParrot}}
+  {{parrot-form parrots=indexInnerController.model  currentControllerBinding="controller" indexInnerController=indexInnerController}}
+{{/if}}

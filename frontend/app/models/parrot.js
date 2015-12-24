@@ -28,14 +28,17 @@ export default DS.Model.extend({
   ageMin: 1,
   ageMax: 1200,
   ageValid: Ember.computed('age', function(){
-    return this.get('age') > this.get('ageMin') &&
-           this.get('age') < this.get('ageMax');
+    return this.get('age') >= this.get('ageMin') &&
+           this.get('age') <= this.get('ageMax');
   }),
 
   colorValid: Ember.computed.notEmpty('color'),
 
-  formValid: Ember.computed('color', 'gender', 'age', function(){
-    return this.get('colorValid') && this.get('ageValid') && this.get('genderValid');
+  fatherValid: Ember.computed.notEmpty('father'),
+  motherValid: Ember.computed.notEmpty('mother'),
+
+  formValid: Ember.computed('color', 'gender', 'age', 'father', 'mother', function(){
+    return this.get('colorValid') && this.get('ageValid') && this.get('genderValid') && this.get('motherValid') && this.get('fatherValid');
   }),
 
   formInvalid: Ember.computed.equal('formValid', false)

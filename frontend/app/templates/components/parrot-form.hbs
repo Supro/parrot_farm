@@ -30,6 +30,10 @@
       Pedigree
     </label>
   </div>
+  {{#if parrot.isNew}}
+    {{parent-input parrot=parrot lookingFather=true}}
+    {{parent-input parrot=parrot lookingFather=false}}
+  {{/if}}
   <div class="form-group">
     {{#if parrot.isNew}}
       <button class="btn btn-success" disabled={{parrot.formInvalid}}>Add parrot</button>

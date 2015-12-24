@@ -1,0 +1,30 @@
+<label>
+  {{#if lookingFather}}
+    Father
+  {{else}}
+    Mother
+  {{/if}}
+</label>
+<select onchange={{action "selectParent" value="target.value"}} class="form-control">
+  {{#if lookingFather}}
+    <option value="" selected={{is-equal parrot.father.id null}}>Select father</option>
+  {{else}}
+    <option value="" selected={{is-equal parrot.mother.id null}}>Select mother</option>
+  {{/if}}
+  {{#each values as |select-parrot|}}
+    {{#if lookingFather}}
+      <option value={{select-parrot.id}} selected={{is-equal parrot.father.id select-parrot.id}}>{{select-parrot.name}} - {{select-parrot.slug}}</option>
+    {{else}}
+      <option value={{select-parrot.id}} selected={{is-equal parrot.mother.id select-parrot.id}}>{{select-parrot.name}} - {{select-parrot.slug}}</option>
+    {{/if}}
+  {{/each}}
+</select>
+{{#if lookingFather}}
+  {{#unless parrot.fatherValid}}
+    <span class="help-block">Select parrot father</span>
+  {{/unless}}
+{{else}}
+  {{#unless parrot.motherValid}}
+    <span class="help-block">Select parrot mother</span>
+  {{/unless}}
+{{/if}}
